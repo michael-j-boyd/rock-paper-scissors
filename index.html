@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock Paper Scissors</title>
+</head>
+<body>
+
+	<h2>Play Rock, Paper, Scissors!</h2>
+
+	<p>Click one of the buttons below to play Rock, Paper, Scissors against the computer.</p>
+
+	<button onclick="document.getElementById('demo').innerHTML = playRound(choose('rock'), computerPlay())">Rock</button>
+	
+	<button onclick="document.getElementById('demo').innerHTML = playRound(choose('paper'), computerPlay())">Paper</button>
+	
+	<button onclick="document.getElementById('demo').innerHTML = playRound(choose('scissors'), computerPlay())">Scissors</button>
+
+	<p id="demo"></p>
+
+<script>
+
+	//Gets random number for computer selection
+	function getRndInteger(min, max) {
+		return Math.floor(Math.random() * (max - min)) + min;
+	}
+	
+	//Turn random number into computer selection
+	function computerPlay () {
+		let num = getRndInteger(0,99);
+		
+		if (num <= 33) {
+			return "rock";
+		}
+		else if (num <= 66) {
+			return "paper";
+		}
+		else {
+			return "scissors"
+		}
+	}
+	
+	//Takes player selection
+	function choose (choice) {
+	/*	let choice = prompt("Choose rock, paper, or scissors.").toLowerCase();
+		
+		if(choice != "rock" && choice != "paper" && choice != "scissors") {
+			return choose();
+			}
+	*/		return choice;
+	}
+	
+	//Takes player choice and computer selection and determines winner
+	function playRound (playerSelection, computerSelection) {
+	
+		if (playerSelection == "rock" && computerSelection == "scissors") {
+			return ("You win! Rock beats scissors.")}
+		else if (playerSelection == "rock" && computerSelection == "paper") {
+			return ("You lose! Paper beats rock.")}
+		else if (playerSelection == "rock" && computerSelection == "rock") {
+			return ("You tied the computer!")}
+		else if (playerSelection == "scissors" && computerSelection == "paper") {
+			return ("You win! Scissors beats paper.")}
+		else if (playerSelection == "scissors" && computerSelection == "rock") {
+			return ("You lose! Rock beats scissors.")}
+		else if (playerSelection == "scissors" && computerSelection == "scissors") {
+			return ("You tied the computer!")}
+		else if (playerSelection == "paper" && computerSelection == "rock") {
+			return ("You win! Paper beats rock.")}
+		else if (playerSelection == "paper" && computerSelection == "scissors") {
+			return ("You lose! Scissors beats paper.")}
+		else if (playerSelection == "paper" && computerSelection == "paper") {
+			return ("You tied the computer!")}
+	}
+	
+	//Keeps track of wins + losses to determine winner of 5-round game
+	function game () {
+	
+		for (i = 0; i < 5; i++) {
+		
+		
+			if (playRound() == "You win! Rock beats scissors." ||
+		
+		}
+	
+	}
+	
+	
+	
+</script>
+
+</body>
+</html>
